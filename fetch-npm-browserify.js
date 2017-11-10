@@ -7,5 +7,4 @@ var globalObj = this;
 if (typeof global !== 'undefined') globalObj = global;
 if (typeof self !== 'undefined') globalObj = self;
 if (typeof window !== 'undefined') globalObj = window;
-if (!globalObj.fetch) globalObj.fetch = whatwgFetch.fetch;
-module.exports = globalObj.fetch.bind(globalObj);
+module.exports = globalObj.fetch && global.fetch.bind(globalObj);
